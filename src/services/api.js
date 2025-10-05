@@ -1,4 +1,4 @@
-// services/api.js
+/*// services/api.js
 import axios from "axios";
 
 // Créer une instance Axios avec l'URL de base de ton backend
@@ -35,4 +35,45 @@ export const loginUser = (credentials) => api.post("/auth/login", credentials);
 export const createOrder = (orderData) => api.post("/orders", orderData);
 
 // Export de l’instance pour les requêtes personnalisées si besoin
-export default api;
+export default api;*/
+
+
+
+
+// src/services/api.jsx
+export const api = {
+  get: async (url) => {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return await response.json();
+    } catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
+      throw error;
+    }
+  },
+
+  post: async (url, data) => {
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return await response.json();
+    } catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
+      throw error;
+    }
+  },
+
+  // Ajoutez d'autres méthodes HTTP (PUT, DELETE) si nécessaire
+};
+

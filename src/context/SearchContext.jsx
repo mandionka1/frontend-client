@@ -17,3 +17,10 @@ export const SearchProvider = ({ children }) => {
 
 export default SearchContext;
 
+
+
+
+
+
+
+

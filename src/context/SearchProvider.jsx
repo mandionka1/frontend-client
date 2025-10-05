@@ -1,4 +1,4 @@
-/*// context/CartContext.jsx
+// context/CartContext.jsx
 import React, { createContext, useState, useEffect } from "react";
 
 export const CartContext = createContext();
@@ -62,36 +62,3 @@ export default CartProvider;
 
 
 
-// context/CartProvider.jsx
-import React, { useState } from "react";
-import { CartContext } from "./CartContext";
-
-export default function CartProvider({ children }) {
-  const [cart, setCart] = useState([]);
-
-  // Exemple de fonctions pour gérer le panier
-  const addToCart = (item) => {
-    setCart((prev) => [...prev, item]);
-  };
-
-  const removeFromCart = (id) => {
-    setCart((prev) => prev.filter((item) => item.id !== id));
-  };
-
-  const clearCart = () => {
-    setCart([]);
-  };
-
-  const value = {
-    cart,
-    addToCart,
-    removeFromCart,
-    clearCart,
-  };
-
-  return (
-    <CartContext.Provider value={value}>
-      {children}
-    </CartContext.Provider>
-  );
-}*/
